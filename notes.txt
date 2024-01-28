@@ -1,0 +1,12 @@
+28/01/2024
+
+hoàn thành hai modules clean và tính toán mức độ cảm xúc cho project c
+
+
+còn phải làm:
+
+Tạo chức năng rút các cảm xúc chính (3 cảm xúc có mức độ cao nhất)
+Tạo chức năng/cách tính toán mood/vibe dựa trên chức năng rút cảm xúc chính.
+tạo dựng dataframe bao gồm các bản nhạc và lời bài hát (200 bài mọi thể loại) 
+tạo dựng chức năng tính toán mood/vibe dựa trên lời bài hát.
+
