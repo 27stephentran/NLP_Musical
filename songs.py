@@ -7,7 +7,15 @@ from keras.models import model_from_json
 
 
 # Load the songs JSON file
+<<<<<<< HEAD
 with open("data/songs_with_emotions.json", "r", encoding="utf-8") as f:
+=======
+<<<<<<< HEAD
+with open("data/songs_with_emotions.json", "r", encoding="utf-8") as f:
+=======
+with open("data/test_songs.json", "r", encoding="utf-8") as f:
+>>>>>>> 3e70dfd5ecc30d2b0267202abf7e5ee39f32788c
+>>>>>>> a6b5b81931e9c7e134d3f214f1d0a286b2d056c6
     songs = json.load(f)
 
 
@@ -36,5 +44,13 @@ for song_id, song_info in songs.items():
     songs[song_id]["top_emotions"] = top_emotions
 
 # Save the updated JSON file
+<<<<<<< HEAD
 with open("data/songs_with_emotions.json", "w") as f:
+=======
+<<<<<<< HEAD
+with open("data/songs_with_emotions.json", "w") as f:
+=======
+with open("songs_with_emotions.json", "w") as f:
+>>>>>>> 3e70dfd5ecc30d2b0267202abf7e5ee39f32788c
+>>>>>>> a6b5b81931e9c7e134d3f214f1d0a286b2d056c6
     json.dump(songs, f, indent=4)

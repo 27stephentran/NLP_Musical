@@ -1,4 +1,8 @@
 import tkinter as tk
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a6b5b81931e9c7e134d3f214f1d0a286b2d056c6
 from tkinter import messagebox
 from PIL import Image, ImageTk
 from pyspark.sql import SparkSession
@@ -20,10 +24,28 @@ spark = SparkSession.builder \
 
 training_data =  spark.read.json("data/train.json")
 # Load pre-trained model
+<<<<<<< HEAD
+=======
+=======
+from tkinter import filedialog, messagebox
+from PIL import Image, ImageTk
+from processing_context.clean_context import preprocess_text_safe
+from processing_context.get_mood import EmotionExtractor
+import gensim.downloader as api
+import numpy as np
+from keras.models import model_from_json
+import json
+
+>>>>>>> 3e70dfd5ecc30d2b0267202abf7e5ee39f32788c
+>>>>>>> a6b5b81931e9c7e134d3f214f1d0a286b2d056c6
 with open("custom_model/my_model.json", "r") as json_file:
     loaded_model_json = json_file.read()
 loaded_model = model_from_json(loaded_model_json)
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a6b5b81931e9c7e134d3f214f1d0a286b2d056c6
 # Load word2vec model
 word2vec_model = api.load("word2vec-google-news-300")
 
@@ -59,11 +81,24 @@ def filter_songs(emotions):
         return filtered_songs
 
 # Hàm phân tích cảm xúc từ câu
+<<<<<<< HEAD
+=======
+=======
+word2vec_model = api.load("word2vec-google-news-300")
+
+saved_status = None  
+
+>>>>>>> 3e70dfd5ecc30d2b0267202abf7e5ee39f32788c
+>>>>>>> a6b5b81931e9c7e134d3f214f1d0a286b2d056c6
 def get_emo(word2vec_model, loaded_model, sentence):
     extractor = EmotionExtractor(word2vec_model, loaded_model)
     top_emotions = extractor.extract_top_emotions(sentence)
     return top_emotions
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a6b5b81931e9c7e134d3f214f1d0a286b2d056c6
 # Hàm hiển thị kết quả trong bảng
 
 
@@ -138,11 +173,30 @@ def submit_status():
 
         # Process the sentence to extract emotions and display results
         word_vectors = [word2vec_model[word] for word in status.split() if word in word2vec_model]
+<<<<<<< HEAD
+=======
+=======
+def submit_status():
+    global saved_status
+    status = status_entry.get()
+    if status:
+        sentence = status
+        
+        # Vectorize the sentence using the word2vec model
+        word_vectors = [word2vec_model[word] for word in sentence.split() if word in word2vec_model]
+
+        # Average the word vectors to get sentence vector
+>>>>>>> 3e70dfd5ecc30d2b0267202abf7e5ee39f32788c
+>>>>>>> a6b5b81931e9c7e134d3f214f1d0a286b2d056c6
         sentence_vector = np.mean(word_vectors, axis=0)
         
         if sentence_vector is not None:
             # Extract emotions using the emotion extractor
             emotions = get_emo(word2vec_model, loaded_model, sentence_vector)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a6b5b81931e9c7e134d3f214f1d0a286b2d056c6
             
             # Update the result label with the top emotions
             result_label.config(text=f"Top Emotions: {emotions}")
@@ -157,6 +211,17 @@ def submit_status():
     else:
         # Show an error message if the status entry is empty
         messagebox.showerror("Error", "Please enter your status.")
+<<<<<<< HEAD
+=======
+=======
+            result_label.config(text=f"Top Emotions: {emotions}")
+        else:
+            messagebox.showerror("Error", "No word vectors found in the sentence.")
+    else:
+        messagebox.showerror("Error", "Please enter your status.")
+
+>>>>>>> 3e70dfd5ecc30d2b0267202abf7e5ee39f32788c
+>>>>>>> a6b5b81931e9c7e134d3f214f1d0a286b2d056c6
 window = tk.Tk()
 window.title("Emotion Detection")
 
@@ -186,6 +251,15 @@ result_label = tk.Label(frame, text="", bg="white")
 result_label.pack(pady=5)
 
 window.mainloop()
+<<<<<<< HEAD
 
 # Đóng SparkSession
 spark.stop()
+=======
+<<<<<<< HEAD
+
+# Đóng SparkSession
+spark.stop()
+=======
+>>>>>>> 3e70dfd5ecc30d2b0267202abf7e5ee39f32788c
+>>>>>>> a6b5b81931e9c7e134d3f214f1d0a286b2d056c6
